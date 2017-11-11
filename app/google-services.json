@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "215254100290",
+    "firebase_url": "https://owlme-e94b5.firebaseio.com",
+    "project_id": "owlme-e94b5",
+    "storage_bucket": "owlme-e94b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215254100290:android:2d157cb9acc62f0e",
+        "android_client_info": {
+          "package_name": "com.example.theroglu.owlme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215254100290-sj8b0ed3p83kitb2dqanoojliel9o5d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVOGtwV_Z8qOl0EvrjBTFrEtwcPxBb5xc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
