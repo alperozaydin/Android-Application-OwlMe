@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    compile 'com.google.firebase:firebase-core:11.6.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -27,4 +28,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     apply plugin: 'com.google.gms.google-services'
 
+    compile 'com.firebaseui:firebase-ui-auth:3.1.0'
+
+    // Required only if Facebook login support is required
+    compile('com.facebook.android:facebook-android-sdk:4.27.0')
+
+    // Required only if Twitter login support is required
+    compile("com.twitter.sdk.android:twitter-core:3.0.0@aar") { transitive = true }
+
 }
+
+apply plugin: 'com.google.gms.google-services'
