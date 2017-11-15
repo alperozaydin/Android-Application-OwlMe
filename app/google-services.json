@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "215254100290",
-    "firebase_url": "https://owlme-e94b5.firebaseio.com",
-    "project_id": "owlme-e94b5",
-    "storage_bucket": "owlme-e94b5.appspot.com"
+    "project_number": "1085752557485",
+    "firebase_url": "https://owlme-d9ae2.firebaseio.com",
+    "project_id": "owlme-d9ae2",
+    "storage_bucket": "owlme-d9ae2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:215254100290:android:2d157cb9acc62f0e",
+        "mobilesdk_app_id": "1:1085752557485:android:2d157cb9acc62f0e",
         "android_client_info": {
           "package_name": "com.example.theroglu.owlme"
         }
       },
       "oauth_client": [
         {
-          "client_id": "215254100290-v2ppelm6ofok7cupi5ftgilif2npnllg.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.theroglu.owlme",
-            "certificate_hash": "936a134baa73e49d4a22dc1cffb17c76d5753449"
-          }
-        },
-        {
-          "client_id": "215254100290-sj8b0ed3p83kitb2dqanoojliel9o5d3.apps.googleusercontent.com",
+          "client_id": "1085752557485-maaoaq8h0pqjg3t2dkgau6shg1569r5o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCVOGtwV_Z8qOl0EvrjBTFrEtwcPxBb5xc"
+          "current_key": "AIzaSyBLWwlqLi9fpdNZwIFwGGsV9Oa4tlSevCM"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "215254100290-sj8b0ed3p83kitb2dqanoojliel9o5d3.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
