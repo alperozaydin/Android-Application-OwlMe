@@ -11,7 +11,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_fragment);
+        setContentView(R.layout.activity_main);
 
         // Button for moving to SignUp activity
         Button MainMenuSignUp= findViewById(R.id.MainMenuSignUpButton);
