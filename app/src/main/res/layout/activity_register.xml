@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.example.theroglu.owlme.RegisterActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBarRegister"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:backgroundTint="@color/cast_expanded_controller_ad_container_white_stripe_color"
+        android:indeterminate="true"
+        android:visibility="invisible"
+
+
+        android:indeterminateTint="#1a09d6"
+        android:max="100"
+       />
+
+
+    <EditText
+        android:id="@+id/nameFieldRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Your Name..."
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/emailFieldRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameFieldRegister"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Your Email..."
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/passwordFieldRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailFieldRegister"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter Your Password..."
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/registerButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordFieldRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Sign Up!" />
+</RelativeLayout>

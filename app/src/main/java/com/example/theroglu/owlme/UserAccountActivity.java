@@ -38,7 +38,7 @@ public class UserAccountActivity extends AppCompatActivity {
 
                         mAuth = FirebaseAuth.getInstance();
                         mAuth.signOut();
-                        startActivity(new Intent(UserAccountActivity.this,SignUpActivity.class));
+                        startActivity(new Intent(UserAccountActivity.this,MainActivity.class));
 
 
             }

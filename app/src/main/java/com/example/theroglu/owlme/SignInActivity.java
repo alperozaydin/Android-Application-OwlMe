@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     //email text box for firebase login
     private EditText mEmailField;
@@ -23,6 +23,9 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mPasswordField;
     //buton tex box for firebase login
     private Button   mSignUpButton;
+    //button for registration
+    private Button  mRegisterButton;
+
     //firebase authentication for users
     private FirebaseAuth mAuth;
     //firebase auth listener
@@ -48,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if(firebaseAuth.getCurrentUser() != null){
 
                     //if user is logged in we redirect him to useraccount page
-                    startActivity(new Intent(SignUpActivity.this,UserAccountActivity.class));
+                    startActivity(new Intent(SignInActivity.this,UserAccountActivity.class));
 
 
 
@@ -62,7 +65,19 @@ public class SignUpActivity extends AppCompatActivity {
         mEmailField=(EditText)findViewById(R.id.EmailField);
         mPasswordField=(EditText) findViewById(R.id.PasswordField);
         mSignUpButton= (Button) findViewById(R.id.loginButton);
+        mRegisterButton= (Button)  findViewById(R.id.RegisterButtonSignUp);
 
+        // Redirects user to registration page
+        mRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent RegisterIntent=new Intent(SignInActivity.this,RegisterActivity.class);
+                startActivity(RegisterIntent);
+            }
+        });
+
+
+        //Button lets the login process start.
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,7 +111,7 @@ public class SignUpActivity extends AppCompatActivity {
 
          if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
 
-             Toast.makeText(SignUpActivity.this, "Fields are empty", Toast.LENGTH_LONG).show();
+             Toast.makeText(SignInActivity.this, "Fields are empty", Toast.LENGTH_LONG).show();
 
 
          }else{
@@ -109,7 +124,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                      if (!task.isSuccessful()) {
 
-                         Toast.makeText(SignUpActivity.this, "Sign In is not succesfull", Toast.LENGTH_LONG).show();
+                         Toast.makeText(SignInActivity.this, "Sign In is not succesfull", Toast.LENGTH_LONG).show();
 
 
                      }
