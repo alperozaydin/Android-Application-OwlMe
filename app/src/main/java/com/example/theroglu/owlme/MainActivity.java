@@ -12,11 +12,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
 
-     private Button MainMenuSignUp;
-
-     //Firebase Authectication variable
-     private FirebaseAuth mAuth;
-     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
     @Override
@@ -26,18 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Button for moving to SignUp activity
-        MainMenuSignUp= findViewById(R.id.MainMenuSignUpButton);
-        MainMenuSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent is used to start up a new activity
 
                 Intent SignUp= new Intent(MainActivity.this,SignInActivity.class);
                 startActivity(SignUp);
-            }
-        });
-
 
     }
 

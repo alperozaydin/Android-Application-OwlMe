@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.facebook.login.LoginManager;
+import com.facebook.login.widget.LoginButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,11 +40,22 @@ public class UserAccountActivity extends AppCompatActivity {
 
                         mAuth = FirebaseAuth.getInstance();
                         mAuth.signOut();
+                LoginManager.getInstance().logOut();
                         startActivity(new Intent(UserAccountActivity.this,MainActivity.class));
 
 
             }
         });
+    }
+
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        mAuth.removeAuthStateListener(mAuthListener);
+
     }
 
 

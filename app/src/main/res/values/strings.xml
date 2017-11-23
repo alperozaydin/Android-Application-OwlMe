@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">OwlMe</string>
-</resources>
+    <string name="facebook_app_id">192208038019093</string>
+    <string name="fb_login_protocol_scheme">fb192208038019093</string>
 
+</resources>
 
