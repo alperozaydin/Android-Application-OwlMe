@@ -3,6 +3,7 @@ package com.example.theroglu.owlme;
 import android.media.Image;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by theroglu on 25.11.17.
@@ -12,6 +13,9 @@ import java.util.Date;
 
 public class User {
 
+
+
+
     private String username;
     private Date birthday;
     private Image profilePicture;
@@ -20,6 +24,15 @@ public class User {
     private int languageLevel;
     private String country;
     private String age;
+
+    public User(String username) {
+
+
+        setUsername(username);
+
+
+    }
+
 
     public String getUsername() {
         return username;

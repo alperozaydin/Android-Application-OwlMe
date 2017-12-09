@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="15px" >
+
+        <!-- bunch of components here -->
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AboutMeHeader"
+            android:text="About Me"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AboutMeViewSetText"
+            android:text="dsfkasfasfasfasf"
+            android:layout_below="@+id/AboutMeHeader"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AboutMeViewSetText"
+            android:id="@+id/LanguagesHeader"
+            android:text="Languages"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LanguagesView"
+            android:text="dsfkasfasfasfasf"
+            android:layout_below="@+id/LanguagesHeader"/>
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/Linearlayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+
+            android:layout_marginTop="5px"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="2px" >
+
+            <Button
+                android:id="@+id/Editing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20px"
+                android:paddingRight="20px"
+                android:text="Edit" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

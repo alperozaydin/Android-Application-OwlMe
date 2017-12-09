@@ -78,7 +78,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
 
-
+      private User mUser;
 
 
 
@@ -269,16 +269,20 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
 
+                            //getting current users account
                             FirebaseUser user=mAuth.getCurrentUser();
 
+                            //getting the display name of the current user to store them in our real time database
+
                             String databaseUserName=user.getDisplayName();
-                            String name=mAuth.getCurrentUser().getDisplayName();
 
+
+                            //creating a child called users
                             DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
+                            //adding a new user using their display name
                             DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
-
-                            userNameRef.setValue(name);
+                           //value is also set to user display name however it doenst have to be so
+                            userNameRef.setValue(databaseUserName);
 
 
 
@@ -325,6 +329,9 @@ public class SignInActivity extends AppCompatActivity {
                     FirebaseUser user=mAuth.getCurrentUser();
 
                     String databaseUserName=user.getDisplayName();
+
+                    //we replace whitespaces and remove them in order to eliminate errors in database for user table.
+                  //   databaseUserName=databaseUserName.replace(" ","");
                     String name=mAuth.getCurrentUser().getDisplayName();
 
                     DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");

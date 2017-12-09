@@ -25,4 +25,14 @@
         android:layout_below="@+id/textView"
         android:layout_marginTop="62dp"
         android:text="LogOut" />
+
+    <Button
+        android:id="@+id/userpageButtonUserAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/LogOutButton"
+        android:layout_alignStart="@+id/LogOutButton"
+        android:layout_below="@+id/LogOutButton"
+        android:layout_marginTop="45dp"
+        android:text="User Page" />
 </RelativeLayout>

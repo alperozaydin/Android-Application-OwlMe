@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -54,6 +55,10 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String TAG="Register_Activity";
     //creating the firebase auth listener for user activity change
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+    //creating a user class
+    private User mUser;
+
 
 
 
@@ -204,6 +209,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
+
+
                             Toast.makeText(RegisterActivity.this,"Registration Is Succesfull",Toast.LENGTH_LONG).show();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
@@ -211,6 +218,9 @@ public class RegisterActivity extends AppCompatActivity {
                             FirebaseUser user=mAuth.getCurrentUser();
 
                             String databaseUserName=user.getDisplayName();
+                            mUser=new User(databaseUserName);
+                            //we replace whitespaces and remove them in order to eliminate errors in database for user table.
+                          //  databaseUserName=databaseUserName.replace(" ","");
                             String name=mAuth.getCurrentUser().getDisplayName();
 
                             DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -268,16 +278,29 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if(task.isSuccessful()){
 
+
+
                         Toast.makeText(RegisterActivity.this,"Registration works",Toast.LENGTH_LONG).show();
 
 
-
-
+                        //getting a reference to the users in realtime database
                         DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
+                        //we add nodes as usernames for the users registered with the normal email
                         DatabaseReference userNameRef =  myRootRef.child(name);
-
+                        //assigning the same name as an value
                         userNameRef.setValue(name);
+                        //here in next 3 lines what happens is we set up a display name for the user as name
+                        //because normally displayname is only generated for gmail and facebook users
+                        //so name variable should be saved up as display name too, because of database queries in future.
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
+
+                        user.updateProfile(profileUpdates);
+
+
+
+
 
 
                         //after that user is redirected to the main account activity.

@@ -17,6 +17,8 @@ public class UserAccountActivity extends AppCompatActivity {
     //button for logging out the user
 
     private Button mLogOutAccount;
+    //button for redirecting to userPage
+    private Button mUserPage;
 
     //firebase authentication for users
     private FirebaseAuth mAuth;
@@ -30,6 +32,14 @@ public class UserAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_account);
 
 
+        //referencing to userpage
+        mUserPage= findViewById(R.id.userpageButtonUserAccount);
+        mUserPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserAccountActivity.this,UserPage.class));
+            }
+        });
 
         mLogOutAccount = findViewById(R.id.LogOutButton);
         mLogOutAccount.setOnClickListener(new View.OnClickListener() {
@@ -50,13 +60,13 @@ public class UserAccountActivity extends AppCompatActivity {
 
 
 
-    @Override
-    protected void onStop() {
-        super.onStop();
+ //   @Override
+ //   protected void onStop() {
+    //super.onStop();
 
-        mAuth.removeAuthStateListener(mAuthListener);
+  //      mAuth.removeAuthStateListener(mAuthListener);
 
-    }
+ //   }
 
 
 }

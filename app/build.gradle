@@ -35,9 +35,15 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:11.6.0'
     implementation 'com.google.android.gms:play-services:11.6.0'
     compile 'com.android.support:support-v4:26.0.1'
+    compile 'com.android.support:design:26.1.0'
+    compile 'at.blogc:expandabletextview:1.0.5'
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+
+
+
 
 
 
