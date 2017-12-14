@@ -11,6 +11,43 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="language_prompt">Choose a Language</string>
+    <string-array name="language_arrays">
+        <item>Choose</item>
+        <item>English</item>
+        <item>Spanish</item>
+        <item>German</item>
+        <item>French</item>
+        <item>Turkish</item>
+        <item>Italian</item>
+        <item>Swedish</item>
+        <item>Polish</item>
+    </string-array>
+
+
+    <string-array name="language_profiency">
+        <item>Choose</item>
+        <item>Beginner</item>
+        <item>Limited</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+        <item>Native</item>
+
+    </string-array>
+
+
+    <string-array name="country_arrays">
+        <item>Choose Your Country</item>
+        <item>America</item>
+        <item>Spain</item>
+        <item>Turkey</item>
+        <item>France</item>
+        <item>Sweden</item>
+        <item>Italy</item>
+        <item>Poland</item>
+        <item>Austria</item>
+    </string-array>
+
 
 </resources>
 

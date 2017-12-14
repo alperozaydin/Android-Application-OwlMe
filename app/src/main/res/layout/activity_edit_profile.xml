@@ -11,6 +11,46 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/CountryHeader"
+            android:text="Country"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <Spinner
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/CountrySpinner"
+            android:layout_weight="1"
+            android:entries="@array/country_arrays"
+            >
+
+
+        </Spinner>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AgeHeader"
+            android:text="Age"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <NumberPicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </NumberPicker>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/AboutMeHeader"
             android:text="About Me"
             android:padding="5dp"
@@ -30,6 +70,164 @@
 
 
         />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AboutMeViewSetText"
+            android:id="@+id/LanguagesHeader"
+            android:text="Languages"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/LanguageLinear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Language1"
+                android:layout_weight="0.5"
+                android:entries="@array/language_arrays"
+                android:prompt="@string/language_prompt">
+
+
+            </Spinner>
+
+
+
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LanguageLevel1"
+                android:layout_weight="0.5"
+                android:layout_gravity="right"
+                android:entries="@array/language_profiency"
+                android:prompt="@string/language_prompt">
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LanguageLinear2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Language2"
+                android:layout_weight="0.5"
+                android:entries="@array/language_arrays"
+                android:prompt="@string/language_prompt">
+
+
+            </Spinner>
+
+
+
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LanguageLevel2"
+                android:layout_weight="0.5"
+                android:layout_gravity="right"
+                android:entries="@array/language_profiency"
+                android:prompt="@string/language_prompt">
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LanguageLinear3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Language3"
+                android:layout_weight="0.5"
+                android:entries="@array/language_arrays"
+                android:prompt="@string/language_prompt">
+
+
+            </Spinner>
+
+
+
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/LanguageLevel3"
+                android:layout_weight="0.5"
+                android:layout_gravity="right"
+                android:entries="@array/language_profiency"
+                android:prompt="@string/language_prompt">
+
+
+            </Spinner>
+
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Language4"
+                    android:layout_weight="0.5"
+                    android:entries="@array/language_arrays"
+                    android:prompt="@string/language_prompt">
+
+
+                </Spinner>
+
+
+
+                <Spinner
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/LanguageLevel4"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="right"
+                    android:entries="@array/language_profiency"
+                    android:prompt="@string/language_prompt">
+
+
+                </Spinner>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
 
         <Button
             android:layout_width="match_parent"

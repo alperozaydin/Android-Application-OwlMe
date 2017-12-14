@@ -39,13 +39,18 @@ import com.facebook.appevents.AppEventsLogger;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -274,15 +279,38 @@ public class SignInActivity extends AppCompatActivity {
 
                             //getting the display name of the current user to store them in our real time database
 
-                            String databaseUserName=user.getDisplayName();
+                            final String databaseUserName=user.getDisplayName();
 
 
                             //creating a child called users
-                            DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
-                            //adding a new user using their display name
-                            DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
-                           //value is also set to user display name however it doenst have to be so
-                            userNameRef.setValue(databaseUserName);
+                            final DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
+
+                            //here we make a control such that, if logged in user is exist in the realtime database
+                            //if not exists, then we save them , if exists we continue with the else statement and break it.
+                            myRootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if(!dataSnapshot.hasChild(databaseUserName)){
+
+                                        DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
+                                        //value is also set to user display name however it doenst have to be so
+                                        userNameRef.setValue(databaseUserName);
+
+
+
+                                    } else{
+
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
 
 
 
@@ -326,19 +354,41 @@ public class SignInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()){
+
+                    //getting the current user from the auth variable
                     FirebaseUser user=mAuth.getCurrentUser();
 
-                    String databaseUserName=user.getDisplayName();
+                    //we are getting the display name of the current facebook user so that we can save them into realtime database table as users
+                    final String databaseUserName=user.getDisplayName();
 
-                    //we replace whitespaces and remove them in order to eliminate errors in database for user table.
-                  //   databaseUserName=databaseUserName.replace(" ","");
-                    String name=mAuth.getCurrentUser().getDisplayName();
+                    //we are getting reference to our users table in our database
+                    final DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
-                    DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
+                    //here we make a control such that, if logged in user is exist in the realtime database
+                    //if not exists, then we save them , if exists we continue with the else statement and break it.
+                    myRootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if(!dataSnapshot.hasChild(databaseUserName)){
 
-                    DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
+                                DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
+                                //value is also set to user display name however it doenst have to be so
+                                userNameRef.setValue(databaseUserName);
 
-                    userNameRef.setValue(name);
+
+
+                            } else{
+
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
 
                 if(!task.isSuccessful()){

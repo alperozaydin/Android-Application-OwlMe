@@ -9,7 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -36,6 +45,24 @@ public class MyProfile extends Fragment {
 
     //button for editing profile
     private Button EditProfileButton;
+    //TextView for AboutMe
+    private TextView AboutMeTextView;
+
+
+
+    //firebase authentication for users
+    private FirebaseAuth mAuth;
+
+
+
+
+
+
+
+
+
+
+
 
     public MyProfile() {
         // Required empty public constructor
@@ -80,6 +107,54 @@ public class MyProfile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_my_profile, container, false);
+
+
+        //referencing to our firebase connection
+        mAuth = FirebaseAuth.getInstance();
+
+        // we are getting the current user
+        FirebaseUser user=mAuth.getCurrentUser();
+        //aboutMe variable is used to get text from the user for about their info
+
+        //we are reaching the user display name to reach database child
+        String databaseUserName=user.getDisplayName();
+
+        //creating a new child in the user account  called About me and updating the data we get from the user thru edit text called aboutMe
+        DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference("Users");
+
+
+        //setting the AboutMe view in firebase AboutMeData
+        AboutMeTextView= v.findViewById(R.id.AboutMeViewSetText);
+
+        myRootRef.child(databaseUserName).child("AboutMe").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+
+                String AboutMe=snapshot.getValue(String.class);
+                AboutMeTextView.setText(AboutMe);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+
 
 
 

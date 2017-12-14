@@ -29,8 +29,11 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -214,22 +217,41 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this,"Registration Is Succesfull",Toast.LENGTH_LONG).show();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-
+                            //getting current users account
                             FirebaseUser user=mAuth.getCurrentUser();
-
-                            String databaseUserName=user.getDisplayName();
-                            mUser=new User(databaseUserName);
-                            //we replace whitespaces and remove them in order to eliminate errors in database for user table.
-                          //  databaseUserName=databaseUserName.replace(" ","");
-                            String name=mAuth.getCurrentUser().getDisplayName();
-
-                            DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
-                            DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
-
-                            userNameRef.setValue(name);
+                            //getting the display name of the current user to store them in our real time database
+                            final String databaseUserName=user.getDisplayName();
 
 
+
+
+                            //creating a child called users
+                            final DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+                            //here we make a control such that, if logged in user is exist in the realtime database
+                            //if not exists, then we save them , if exists we continue with the else statement and break it.
+                            myRootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if(!dataSnapshot.hasChild(databaseUserName)){
+
+                                        DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
+                                        //value is also set to user display name however it doenst have to be so
+                                        userNameRef.setValue(databaseUserName);
+
+
+
+                                    } else{
+
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
 
 
                         //after that user is redirected to the main account activity.
