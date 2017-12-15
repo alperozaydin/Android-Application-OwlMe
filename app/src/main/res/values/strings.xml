@@ -8,6 +8,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="age_instruction">Enter Your Age Here</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -23,6 +24,15 @@
         <item>Swedish</item>
         <item>Polish</item>
     </string-array>
+
+    <string-array name="gender_arrays">
+        <item>Choose</item>
+        <item>Male</item>
+        <item>Female</item>
+
+
+    </string-array>
+
 
 
     <string-array name="language_profiency">

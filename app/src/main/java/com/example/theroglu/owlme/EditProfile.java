@@ -43,6 +43,20 @@ public class EditProfile extends AppCompatActivity {
     //spinner for language level, level1
     private Spinner LanguageLevelSpinner4;
 
+    //spinner for gender
+    private Spinner GenderSpinner;
+
+    //spinner for country
+    private Spinner CountrySpinner;
+
+    //edit text for age
+    private EditText AgeEditText;
+
+
+    //age for the user
+    int Age;
+
+
 
 
 
@@ -80,6 +94,12 @@ public class EditProfile extends AppCompatActivity {
         LanguageLevelSpinner3= findViewById(R.id.LanguageLevel3);
         LanguageSpinner4 = findViewById(R.id.Language4);
         LanguageLevelSpinner4= findViewById(R.id.LanguageLevel4);
+        GenderSpinner=findViewById(R.id.GenderSpinner);
+        CountrySpinner=findViewById(R.id.CountrySpinner);
+        AgeEditText= findViewById(R.id.AgeInputEditText);
+
+
+
 
 
 
@@ -98,6 +118,16 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //if age area is empty then we set it to zero otherwise parsing null to int is not possible
+                if(AgeEditText.getText().toString().equals("")){
+                    AgeEditText.setText("0");
+                }
+
+
+
+                //parsing age value to the int so that we can use it later
+                Age= Integer.parseInt(AgeEditText.getText().toString());
+
 
                 // we are getting the current user
                 FirebaseUser user=mAuth.getCurrentUser();
@@ -109,9 +139,12 @@ public class EditProfile extends AppCompatActivity {
 
 
                 //creating a new child in the user account  called About me and updating the data we get from the user thru edit text called aboutMe
+                if(!editTextAboutMe.getText().toString().equals("")){
                 DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("AboutMe");
-                myRootRef.setValue(aboutMe);
+                myRootRef.setValue(aboutMe);}
 
+
+                // belove if conditions checks whether or not language preferences are empty, if so they re not saved.
                 if(!LanguageSpinner1.getSelectedItem().equals("Choose") && !LanguageLevelSpinner1.getSelectedItem().equals("Choose")) {
 
 
@@ -148,6 +181,46 @@ public class EditProfile extends AppCompatActivity {
 
 
                 }
+
+
+                //if gender is not empty then we select and  save it to the database
+                if(!GenderSpinner.getSelectedItem().equals("Choose") ){
+                    DatabaseReference Gender = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Gender");
+                    Gender.setValue(GenderSpinner.getSelectedItem().toString());
+
+
+
+                }
+
+                //if country is not empty then we select and  save it to the database
+                if(!CountrySpinner.getSelectedItem().equals("Choose") ){
+                    DatabaseReference Gender = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Country");
+                    Gender.setValue(CountrySpinner.getSelectedItem().toString());
+
+
+
+                }
+
+
+
+
+
+
+                //if age is bigger than 18 and smaller than 100 we save the age to the database
+               if( 18<= Age){
+
+                    if(Age <=100 ){
+
+                        DatabaseReference Age = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Age");
+                        Age.setValue(Integer.parseInt(AgeEditText.getText().toString()));
+
+                    }
+               }
+
+
+
+
+
 
 
 

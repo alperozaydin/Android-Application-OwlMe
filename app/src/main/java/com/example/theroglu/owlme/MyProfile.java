@@ -5,10 +5,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +25,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -43,10 +56,18 @@ public class MyProfile extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+
+
     //button for editing profile
     private Button EditProfileButton;
     //TextView for AboutMe
     private TextView AboutMeTextView;
+    //TextView for Country;
+    private TextView Country;
+    //TextView for Gender
+    private TextView GenderTextView;
+    //TextView for Age;
+    private  TextView AgeTextView;
 
 
 
@@ -109,6 +130,7 @@ public class MyProfile extends Fragment {
         View v = inflater.inflate(R.layout.fragment_my_profile, container, false);
 
 
+
         //referencing to our firebase connection
         mAuth = FirebaseAuth.getInstance();
 
@@ -124,8 +146,140 @@ public class MyProfile extends Fragment {
 
 
         //setting the AboutMe view in firebase AboutMeData
-        AboutMeTextView= v.findViewById(R.id.AboutMeViewSetText);
+        AboutMeTextView= v.findViewById(R.id.aboutMeTExtViewMyProfile);
 
+        Country = v.findViewById(R.id.CountryMyProfile);
+        GenderTextView = v.findViewById(R.id.GenderMyProfile);
+        AgeTextView=v.findViewById(R.id.AgeMyProfilee);
+
+
+        //this is used to fetch data about user for the section of "country"
+        myRootRef.child(databaseUserName).child("Country").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+
+                String AboutMe=snapshot.getValue(String.class);
+                Country.setText(AboutMe);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+
+        //this is used to fetch data about user for the section of "age"
+        myRootRef.child(databaseUserName).child("Age").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+
+               int age2= Integer.valueOf(snapshot.getValue(Integer.class));
+
+               String value= String.valueOf(age2);
+               AgeTextView.setText(value);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+
+        //this is used to fetch data about user for the section of "gender"
+        myRootRef.child(databaseUserName).child("Gender").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+
+                String gender=snapshot.getValue(String.class);
+
+                GenderTextView.setText(gender);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+
+        //this is used to fetch data about user for the section of "languages"
+        myRootRef.child(databaseUserName).child("Languages").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                int x = 1;
+
+
+                Map<String,Object> map = new HashMap<String, Object>();
+
+                String[] values = new String[(int)snapshot.getChildrenCount()];
+
+
+
+                for (DataSnapshot postSnapshot :snapshot.getChildren()) {
+
+
+
+
+                    map.put(postSnapshot.getKey(), postSnapshot.getValue());
+
+                    values[x-1] = postSnapshot.getKey().toString() + " "  + postSnapshot.getValue(String.class);
+                    x = x + 1;
+
+
+
+                }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, values);
+                ((ListView)getActivity().findViewById(R.id.LanguagesListView)).setAdapter(adapter);
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+
+
+
+
+
+
+
+
+        //this is used to fetch data about user for the section of "aboutme"
         myRootRef.child(databaseUserName).child("AboutMe").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -174,12 +328,13 @@ public class MyProfile extends Fragment {
                 }
             });
 
+
+
         return v;
+
+
+
     }
-
-
-
-
 
 
 

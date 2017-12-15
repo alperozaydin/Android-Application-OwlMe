@@ -27,8 +27,29 @@
             android:entries="@array/country_arrays"
             >
 
+        </Spinner>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/GenderHeader"
+            android:text="Gender"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <Spinner
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/GenderSpinner"
+            android:layout_weight="1"
+            android:entries="@array/gender_arrays"
+            >
 
         </Spinner>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -40,13 +61,14 @@
             android:paddingBottom="10dp"
             />
 
-        <NumberPicker
+
+        <EditText
+            android:id="@+id/AgeInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </NumberPicker>
-
-
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/age_instruction"
+            android:inputType="numberSigned" />
 
         <TextView
             android:layout_width="match_parent"
