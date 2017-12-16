@@ -1,12 +1,15 @@
 package com.example.theroglu.owlme;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
@@ -18,6 +21,31 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SettingsFragment extends Fragment {
+
+
+
+
+     //change password Button
+      private Button ChangePassword;
+
+      //Remove your Account BUtton
+      private Button AccountRemoveButton;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,11 +88,54 @@ public class SettingsFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        View v = inflater.inflate(R.layout.fragment_settings, container, false);
+
+
+
+        //referencing our change password from the layyout file
+        ChangePassword= v.findViewById(R.id.ChangePasswordButton);
+
+        ChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent changePasswordIntent= new Intent(getActivity(),ChangePasswordActivity.class);
+
+                startActivity(changePasswordIntent);
+
+
+
+
+            }
+        });
+
+
+
+
+
+        //referencing our account removal button from layout file
+        AccountRemoveButton=v.findViewById(R.id.RemoveAccountButton);
+
+
+
+        //ACcount listener for our account removal BUtton
+        AccountRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                startActivity(new Intent(getActivity(),RemoveAccountActivity.class));
+            }
+        });
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

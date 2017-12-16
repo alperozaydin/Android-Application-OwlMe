@@ -137,10 +137,18 @@ public class UserPage extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            MyHomeFragment myHomeFragment=new MyHomeFragment();
+            FragmentManager manager= getSupportFragmentManager();
+
+            manager.beginTransaction().replace(R.id.relative_layout_for_myprofile_fragment,myHomeFragment,myHomeFragment.getTag()).commit();
+
+
         } else if (id == R.id.nav_profile) {
 
+            //creating MyProfile Fragment, realize that we re not creating Activites because this menu requires only fragments.
+
             MyProfile myProfile = new MyProfile();
+
 
             FragmentManager manager= getSupportFragmentManager();
 
@@ -150,9 +158,29 @@ public class UserPage extends AppCompatActivity
 
         } else if (id == R.id.nav_messages) {
 
+            //creating messagesFragment , realize that we re not creating Activites because this menu requires only fragments.
+
+            MessagesFragment messagesFragment=new MessagesFragment();
+            FragmentManager manager= getSupportFragmentManager();
+
+            manager.beginTransaction().replace(R.id.relative_layout_for_myprofile_fragment,messagesFragment,messagesFragment.getTag()).commit();
+
+
         } else if (id == R.id.nav_friends) {
 
+            //creating friendsFragment, realize that we re not creating Activites because this menu requires only fragments.
+
+            FriendsFragment friendsFragment=new FriendsFragment();
+            FragmentManager manager= getSupportFragmentManager();
+
+            manager.beginTransaction().replace(R.id.relative_layout_for_myprofile_fragment,friendsFragment,friendsFragment.getTag()).commit();
+
+
+
+
         } else if (id == R.id.nav_settings) {
+
+            //creating settingsFragment, realize that we re not creating Activites because this menu requires only fragments.
 
             SettingsFragment settingsFragment= new SettingsFragment();
 

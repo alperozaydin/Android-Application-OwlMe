@@ -193,9 +193,9 @@ public class EditProfile extends AppCompatActivity {
                 }
 
                 //if country is not empty then we select and  save it to the database
-                if(!CountrySpinner.getSelectedItem().equals("Choose") ){
-                    DatabaseReference Gender = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Country");
-                    Gender.setValue(CountrySpinner.getSelectedItem().toString());
+                if(!CountrySpinner.getSelectedItem().equals("Choose Your Country") ){
+                    DatabaseReference Country = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Country");
+                    Country.setValue(CountrySpinner.getSelectedItem().toString());
 
 
 

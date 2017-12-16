@@ -1,5 +1,6 @@
 package com.example.theroglu.owlme;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -54,6 +56,8 @@ import java.util.Map;
 
 public class SignInActivity extends AppCompatActivity {
 
+
+    private ImageView AppIcon;
 
     //email text box for firebase login
     private EditText mEmailField;
@@ -101,10 +105,13 @@ public class SignInActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        AppIcon=findViewById(R.id.AppIconView);
 
         //referencing our Firebase variable with the application
         mAuth=FirebaseAuth.getInstance();
@@ -118,7 +125,7 @@ public class SignInActivity extends AppCompatActivity {
                 if(firebaseAuth.getCurrentUser() != null){
 
                     //if user is logged in we redirect him to useraccount page
-                    startActivity(new Intent(SignInActivity.this,UserAccountActivity.class));
+                    startActivity(new Intent(SignInActivity.this,UserPage.class));
 
 
 
@@ -316,7 +323,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
                             //after that user is redirected to the main account activity.
-                            Intent accountIntent = new Intent(SignInActivity.this,UserAccountActivity.class);
+                            Intent accountIntent = new Intent(SignInActivity.this,UserPage.class);
                             accountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(accountIntent);
 

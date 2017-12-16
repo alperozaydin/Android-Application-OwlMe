@@ -180,10 +180,16 @@ public class MyProfile extends Fragment {
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
 
-               int age2= Integer.valueOf(snapshot.getValue(Integer.class));
+                if(snapshot.getValue(Integer.class) != null){
 
-               String value= String.valueOf(age2);
-               AgeTextView.setText(value);
+                    int age2= Integer.valueOf(snapshot.getValue(Integer.class));
+
+                    String value= String.valueOf(age2);
+                    AgeTextView.setText(value);
+
+                }
+
+
 
             }
 

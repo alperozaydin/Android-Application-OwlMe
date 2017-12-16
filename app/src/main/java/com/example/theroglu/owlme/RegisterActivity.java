@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
 
-                    startActivity(new Intent(RegisterActivity.this,UserAccountActivity.class));
+                    startActivity(new Intent(RegisterActivity.this,UserPage.class));
 
                 }
             }
@@ -255,7 +255,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                         //after that user is redirected to the main account activity.
-                            Intent accountIntent = new Intent(RegisterActivity.this,UserAccountActivity.class);
+                            Intent accountIntent = new Intent(RegisterActivity.this,UserPage.class);
                             accountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(accountIntent);
 
@@ -326,7 +326,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                         //after that user is redirected to the main account activity.
-                        Intent accountIntent = new Intent(RegisterActivity.this,UserAccountActivity.class);
+                        Intent accountIntent = new Intent(RegisterActivity.this,UserPage.class);
                         accountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(accountIntent);
 

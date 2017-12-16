@@ -7,6 +7,14 @@
     android:padding="20dp"
     tools:context="com.example.theroglu.owlme.SignInActivity">
 
+    <ImageView
+        android:id="@+id/AppIconView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/owlicon"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_buttonFacebook"
         android:layout_width="wrap_content"

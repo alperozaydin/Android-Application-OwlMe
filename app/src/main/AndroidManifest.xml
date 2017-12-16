@@ -39,13 +39,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignInActivity" />
-        <activity android:name=".UserAccountActivity" />
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".UserPage"
             android:label="@string/title_activity_user_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditProfile"></activity>
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".RemoveAccountActivity"></activity>
     </application>
 
 </manifest>
