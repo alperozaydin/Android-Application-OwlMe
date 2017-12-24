@@ -54,7 +54,7 @@ public class EditProfile extends AppCompatActivity {
 
 
     //age for the user
-    int Age;
+    int age;
 
 
 
@@ -126,7 +126,7 @@ public class EditProfile extends AppCompatActivity {
 
 
                 //parsing age value to the int so that we can use it later
-                Age= Integer.parseInt(AgeEditText.getText().toString());
+                age= Integer.parseInt(AgeEditText.getText().toString());
 
 
                 // we are getting the current user
@@ -140,7 +140,7 @@ public class EditProfile extends AppCompatActivity {
 
                 //creating a new child in the user account  called About me and updating the data we get from the user thru edit text called aboutMe
                 if(!editTextAboutMe.getText().toString().equals("")){
-                DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("AboutMe");
+                DatabaseReference myRootRef = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("aboutme");
                 myRootRef.setValue(aboutMe);}
 
 
@@ -148,7 +148,7 @@ public class EditProfile extends AppCompatActivity {
                 if(!LanguageSpinner1.getSelectedItem().equals("Choose") && !LanguageLevelSpinner1.getSelectedItem().equals("Choose")) {
 
 
-                DatabaseReference language1 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Languages").child(LanguageSpinner1.getSelectedItem().toString()) ;
+                DatabaseReference language1 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("languages").child(LanguageSpinner1.getSelectedItem().toString()) ;
                 language1.setValue(LanguageLevelSpinner1.getSelectedItem().toString());
 
 
@@ -156,7 +156,7 @@ public class EditProfile extends AppCompatActivity {
 
 
                 if(!LanguageSpinner2.getSelectedItem().equals("Choose") && !LanguageLevelSpinner2.getSelectedItem().equals("Choose")){
-                    DatabaseReference language2 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Languages").child(LanguageSpinner2.getSelectedItem().toString()) ;
+                    DatabaseReference language2 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("languages").child(LanguageSpinner2.getSelectedItem().toString()) ;
                     language2.setValue(LanguageLevelSpinner2.getSelectedItem().toString());
 
 
@@ -166,7 +166,7 @@ public class EditProfile extends AppCompatActivity {
 
 
                 if(!LanguageSpinner3.getSelectedItem().equals("Choose") && !LanguageLevelSpinner3.getSelectedItem().equals("Choose")){
-                    DatabaseReference language3 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Languages").child(LanguageSpinner3.getSelectedItem().toString()) ;
+                    DatabaseReference language3 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("languages").child(LanguageSpinner3.getSelectedItem().toString()) ;
                     language3.setValue(LanguageLevelSpinner3.getSelectedItem().toString());
 
 
@@ -175,7 +175,7 @@ public class EditProfile extends AppCompatActivity {
                 }
 
                 if(!LanguageSpinner4.getSelectedItem().equals("Choose") && !LanguageLevelSpinner4.getSelectedItem().equals("Choose")){
-                    DatabaseReference language4 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Languages").child(LanguageSpinner4.getSelectedItem().toString()) ;
+                    DatabaseReference language4 = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("languages").child(LanguageSpinner4.getSelectedItem().toString()) ;
                     language4.setValue(LanguageLevelSpinner4.getSelectedItem().toString());
 
 
@@ -185,7 +185,7 @@ public class EditProfile extends AppCompatActivity {
 
                 //if gender is not empty then we select and  save it to the database
                 if(!GenderSpinner.getSelectedItem().equals("Choose") ){
-                    DatabaseReference Gender = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Gender");
+                    DatabaseReference Gender = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("gender");
                     Gender.setValue(GenderSpinner.getSelectedItem().toString());
 
 
@@ -193,8 +193,8 @@ public class EditProfile extends AppCompatActivity {
                 }
 
                 //if country is not empty then we select and  save it to the database
-                if(!CountrySpinner.getSelectedItem().equals("Choose Your Country") ){
-                    DatabaseReference Country = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Country");
+                if(!CountrySpinner.getSelectedItem().equals("Choose a Country") ){
+                    DatabaseReference Country = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("country");
                     Country.setValue(CountrySpinner.getSelectedItem().toString());
 
 
@@ -207,12 +207,12 @@ public class EditProfile extends AppCompatActivity {
 
 
                 //if age is bigger than 18 and smaller than 100 we save the age to the database
-               if( 18<= Age){
+               if( 18<= age){
 
-                    if(Age <=100 ){
+                    if(age <=100 ){
 
-                        DatabaseReference Age = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("Age");
-                        Age.setValue(Integer.parseInt(AgeEditText.getText().toString()));
+                        DatabaseReference age = FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("age");
+                        age.setValue(Integer.parseInt(AgeEditText.getText().toString()));
 
                     }
                }
