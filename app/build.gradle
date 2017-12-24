@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -37,6 +38,9 @@ dependencies {
     compile 'com.android.support:support-v4:26.0.1'
     compile 'com.android.support:design:26.1.0'
     compile 'at.blogc:expandabletextview:1.0.5'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.firebase:firebase-client-android:2.5.2+'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
