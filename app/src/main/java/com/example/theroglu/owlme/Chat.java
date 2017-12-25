@@ -19,8 +19,8 @@ import java.util.Map;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -38,6 +38,7 @@ public class Chat extends AppCompatActivity {
     EditText messageArea;
     ScrollView scrollView;
     Firebase reference1, reference2;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +51,14 @@ public class Chat extends AppCompatActivity {
         messageArea = (EditText)findViewById(R.id.messageArea);
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
+        mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser sender = mAuth.getCurrentUser();
+        final String senderName = sender.getDisplayName().toString();
+
+
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://owlme-d9ae2.firebaseio.com/messages/" + UserDetails.username + "_" + UserDetails.chatWith);
-        reference2 = new Firebase("https://owlme-d9ae2.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.username);
+        reference1 = new Firebase("https://owlme-d9ae2.firebaseio.com/messages/" + senderName + "_" + UserDetails.chatWith);
+        reference2 = new Firebase("https://owlme-d9ae2.firebaseio.com/messages/" + UserDetails.chatWith + "_" + senderName);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +68,7 @@ public class Chat extends AppCompatActivity {
                 if(!messageText.equals("")){
                     Map<String, String> map = new HashMap<String, String>();
                     map.put("message", messageText);
-                    map.put("user", UserDetails.username);
+                    map.put("user", senderName);
                     reference1.push().setValue(map);
                     reference2.push().setValue(map);
                     messageArea.setText("");
@@ -77,7 +83,7 @@ public class Chat extends AppCompatActivity {
                 String message = map.get("message").toString();
                 String userName = map.get("user").toString();
 
-                if(userName.equals(UserDetails.username)){
+                if(userName.equals(senderName)){
                     addMessageBox("You:-\n" + message, 1);
                 }
                 else{
