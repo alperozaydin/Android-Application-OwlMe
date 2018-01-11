@@ -30,7 +30,7 @@ public class SettingsFragment extends Fragment {
 
       //Remove your Account BUtton
       private Button AccountRemoveButton;
-
+      private Button TempChatButton;
 
 
 
@@ -133,6 +133,15 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        TempChatButton = v.findViewById(R.id.tempchat);
+        TempChatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                startActivity(new Intent(getActivity(),Users.class));
+            }
+        });
 
 
         return v;

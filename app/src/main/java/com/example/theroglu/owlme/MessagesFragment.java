@@ -1,6 +1,7 @@
 package com.example.theroglu.owlme;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,11 +24,12 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_messagess, container, false);
 
-
-
-        return v;
+        //TODO
+        //We need to put chat code here!
+        Intent myIntent = new Intent(getActivity(), Users.class);
+        startActivity(myIntent);
+        return inflater.inflate(R.layout.activity_users, container, false);
     }
 
 }
