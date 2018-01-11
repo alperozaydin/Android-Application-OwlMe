@@ -116,6 +116,7 @@ public class SignInActivity extends AppCompatActivity {
         //referencing our Firebase variable with the application
         mAuth=FirebaseAuth.getInstance();
 
+
         // creating a listener for firebaseauth
         mAuthListener= new FirebaseAuth.AuthStateListener() {
             @Override

@@ -24,6 +24,7 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         //TODO
         //We need to put chat code here!
         Intent myIntent = new Intent(getActivity(), Users.class);

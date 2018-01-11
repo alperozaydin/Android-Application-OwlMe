@@ -49,6 +49,11 @@
         <activity android:name=".Users"/>
         <activity android:name=".Chat"/>
         <activity android:name=".RemoveAccountActivity"></activity>
+        <activity android:name=".RemoveAccountActivity" />
+        <activity android:name=".FindFriendsWithLanguage" />
+        <activity android:name=".FriendDetail" />
+        <activity android:name=".FindFriendsWithCountry" />
+        <activity android:name=".startChatWithUser"></activity>
     </application>
 
 </manifest>
