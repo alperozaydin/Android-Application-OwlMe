@@ -46,9 +46,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EditProfile" />
         <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".Users"/>
-        <activity android:name=".Chat"/>
-        <activity android:name=".RemoveAccountActivity"></activity>
         <activity android:name=".RemoveAccountActivity" />
         <activity android:name=".FindFriendsWithLanguage" />
         <activity android:name=".FriendDetail" />
