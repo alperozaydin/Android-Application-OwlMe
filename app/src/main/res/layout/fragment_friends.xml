@@ -5,23 +5,66 @@
     android:orientation="vertical"
     tools:context="com.example.theroglu.owlme.FriendsFragment">
 
-    <TextView
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:id="@+id/FriendRequestLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/AgeHeader"
-        android:text="UNDER HEAVY CONSTRUCTION"
-        android:padding="5dp"
-        android:background="@android:color/darker_gray"
-        android:paddingBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/FriendRequestHeader"
+            android:text="New Friend Requests"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
 
 
-        />
+        <ListView
+            android:id="@+id/FriendRequestsListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-    <TextView
+        </ListView>
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/FriendsLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ayca22 oturum acti"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/FriendsListHeader"
+            android:text="Friends"
+            android:padding="5dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            />
+
+        <ListView
+            android:id="@+id/FriendsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+
+
+
+
+    </LinearLayout>
+
+
+
 
 
 

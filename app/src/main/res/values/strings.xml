@@ -47,7 +47,7 @@
 
 
     <string-array name="country_arrays">
-        <item>Choose Your Country</item>
+        <item>Choose a Country</item>
         <item>America</item>
         <item>Spain</item>
         <item>Turkey</item>
@@ -57,6 +57,7 @@
         <item>Poland</item>
         <item>Austria</item>
     </string-array>
+    <string name="title_activity_friend_detail">FriendDetail</string>
 
 
 </resources>

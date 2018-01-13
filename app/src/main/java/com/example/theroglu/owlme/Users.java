@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,12 +17,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import static com.example.theroglu.owlme.UserDetails.username;
 
 /**
  * Created by Seric on 12/17/17.
@@ -33,6 +38,7 @@ public class Users extends AppCompatActivity {
     ArrayList<String> al = new ArrayList<>();
     int totalUsers = 0;
     ProgressDialog pd;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +52,12 @@ public class Users extends AppCompatActivity {
         System.out.println(usersList);
 
 
+
         pd = new ProgressDialog(Users.this);
         pd.setMessage("Loading...");
         pd.show();
 
-        String url = "https://owlme-d9ae2.firebaseio.com/Users.json";
+        String url = "https://owlme-d9ae2.firebaseio.com/messages.json";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
@@ -74,9 +81,29 @@ public class Users extends AppCompatActivity {
                 startActivity(new Intent(Users.this, Chat.class));
             }
         });
+
+        usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                String a= usersList.getItemAtPosition(position).toString();
+                Intent startchat= new Intent(getApplicationContext(),Chat.class);
+                startchat.putExtra("username",a);
+                startActivity(startchat);
+            }
+        });
     }
 
     public void doOnSuccess(String s){
+
+        mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser sender = mAuth.getCurrentUser();
+        final String senderName = sender.getDisplayName().toString();
+
+
+
+
+
         try {
             JSONObject obj = new JSONObject(s);
 
@@ -84,13 +111,25 @@ public class Users extends AppCompatActivity {
             String key = "";
 
             while(i.hasNext()){
-                key = i.next().toString();
 
-                if(!key.equals(UserDetails.username)) {
-                    al.add(key);
-                }
 
-                totalUsers++;
+                    key = i.next().toString();
+
+                    if(key.startsWith(senderName)) {
+
+                        String result[] = key.split("_");
+                        String returnValue = result[result.length - 1];
+
+
+                        if (!key.equals(username)) {
+                            al.add(returnValue);
+                        }
+
+                    }
+
+                    totalUsers++;
+
+
             }
 
         } catch (JSONException e) {

@@ -23,12 +23,22 @@ public class MessagesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+        View v= inflater.inflate(R.layout.fragment_messages, container, false);
+
         // Inflate the layout for this fragment
+
         //TODO
         //We need to put chat code here!
         Intent myIntent = new Intent(getActivity(), Users.class);
         startActivity(myIntent);
-        return inflater.inflate(R.layout.activity_users, container, false);
+
+
+
+
+        return v;
+
     }
 
 }

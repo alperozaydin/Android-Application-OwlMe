@@ -1,5 +1,6 @@
 package com.example.theroglu.owlme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -40,10 +41,14 @@ public class Chat extends AppCompatActivity {
     Firebase reference1, reference2;
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+
+
 
         layout = (LinearLayout) findViewById(R.id.layout1);
         layout_2 = (RelativeLayout)findViewById(R.id.layout2);
@@ -54,6 +59,11 @@ public class Chat extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser sender = mAuth.getCurrentUser();
         final String senderName = sender.getDisplayName().toString();
+
+        Intent intent=getIntent();
+
+
+       UserDetails.chatWith=intent.getStringExtra("username").toString();
 
 
         Firebase.setAndroidContext(this);
