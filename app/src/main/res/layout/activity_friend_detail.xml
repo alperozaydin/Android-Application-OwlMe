@@ -98,15 +98,33 @@
 
 
 
-
-        <Button
-            android:id="@+id/MessageToUser"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MESSAGE TO USER"
-            android:layout_gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal">
 
-            />
+            <Button
+                android:id="@+id/AddFriendsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Friend"
+                android:layout_weight="1"
+
+
+                />
+
+            <Button
+                android:id="@+id/MessageToUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MESSAGE TO USER"
+                android:layout_weight="1"
+
+
+                />
+
+
+        </LinearLayout>
 
 
 
