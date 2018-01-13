@@ -5,24 +5,6 @@
     android:orientation="vertical"
     tools:context="com.example.theroglu.owlme.FriendsFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/AgeHeader"
-        android:text="UNDER HEAVY CONSTRUCTION"
-        android:padding="5dp"
-        android:background="@android:color/darker_gray"
-        android:paddingBottom="10dp"
-
-
-        />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Some Messages will be placed here"/>
-
 
 
 </LinearLayout>

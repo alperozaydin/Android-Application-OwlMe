@@ -154,13 +154,13 @@ public class MyProfile extends Fragment {
 
 
         //this is used to fetch data about user for the section of "country"
-        myRootRef.child(databaseUserName).child("Country").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRootRef.child(databaseUserName).child("country").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
 
-                String AboutMe=snapshot.getValue(String.class);
-                Country.setText(AboutMe);
+                String countryy=snapshot.getValue(String.class);
+                Country.setText(countryy);
 
 
             }
@@ -175,7 +175,7 @@ public class MyProfile extends Fragment {
 
 
         //this is used to fetch data about user for the section of "age"
-        myRootRef.child(databaseUserName).child("Age").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRootRef.child(databaseUserName).child("age").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
@@ -203,7 +203,7 @@ public class MyProfile extends Fragment {
 
 
         //this is used to fetch data about user for the section of "gender"
-        myRootRef.child(databaseUserName).child("Gender").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRootRef.child(databaseUserName).child("gender").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
@@ -226,7 +226,7 @@ public class MyProfile extends Fragment {
 
 
         //this is used to fetch data about user for the section of "languages"
-        myRootRef.child(databaseUserName).child("Languages").addValueEventListener(new ValueEventListener() {
+        myRootRef.child(databaseUserName).child("languages").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
@@ -286,7 +286,7 @@ public class MyProfile extends Fragment {
 
 
         //this is used to fetch data about user for the section of "aboutme"
-        myRootRef.child(databaseUserName).child("AboutMe").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRootRef.child(databaseUserName).child("aboutme").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()

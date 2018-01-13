@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_friends_items"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/userNameOfTheUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/powered_by_google_dark"
+        android:gravity="center_vertical"
+        android:text="Username: "
+        android:textSize="14dp"/>
+
+    <TextView
+        android:id="@+id/countryOfTheUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        android:gravity="center_vertical"
+        android:textSize="10dp"
+        android:layout_below="@id/userNameOfTheUser"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/aboutmeOfTheUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AboutMe"
+        android:gravity="center_vertical"
+        android:textSize="10dp"
+        android:layout_below="@id/countryOfTheUser"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/ageOfTheUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:textSize="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="150dp"
+        android:layout_alignBaseline="@id/countryOfTheUser"/>
+
+    <TextView
+        android:id="@+id/genderOfTheUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="150dp"
+        android:layout_below="@+id/ageOfTheUser"/>
+
+
+
+</RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

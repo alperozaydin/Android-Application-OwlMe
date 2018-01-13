@@ -1,9 +1,6 @@
 package com.example.theroglu.owlme;
 
-import android.media.Image;
-
-import java.util.Date;
-import java.util.UUID;
+import java.util.Map;
 
 /**
  * Created by theroglu on 25.11.17.
@@ -14,26 +11,6 @@ import java.util.UUID;
 public class User {
 
 
-
-
-    private String username;
-    private Date birthday;
-    private Image profilePicture;
-    private String bio;
-    private String languages;
-    private int languageLevel;
-    private String country;
-    private String age;
-
-    public User(String username) {
-
-
-        setUsername(username);
-
-
-    }
-
-
     public String getUsername() {
         return username;
     }
@@ -42,44 +19,67 @@ public class User {
         this.username = username;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    private String username;
+    public String aboutme;
+    public int    age;
+    public String country;
+    public String gender;
+    public Map<String,Object> languages;
+
+
+
+
+
+
+
+
+    public User(){}
+
+
+        public User(String aboutme, int age, String country, String gender, Map<String,Object> languages) {
+        this.aboutme = aboutme;
+        this.age = age;
+        this.country = country;
+        this.gender = gender;
+        this.languages = languages;
+
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+
+    public int getLanguages() {
+
+
+
+
+        return languages.size();
     }
 
-    public Image getProfilePicture() {
-        return profilePicture;
+    public void findLanguages(){
+        for (Map.Entry<String, Object> entry : languages.entrySet())
+        {
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+        }
     }
 
-    public void setProfilePicture(Image profilePicture) {
-        this.profilePicture = profilePicture;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public String getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(String languages) {
+    public void setLanguages(Map<String, Object> languages) {
         this.languages = languages;
     }
 
-    public int getLanguageLevel() {
-        return languageLevel;
+
+    public String getAboutme() {
+        return aboutme;
     }
 
-    public void setLanguageLevel(int languageLevel) {
-        this.languageLevel = languageLevel;
+    public void setAboutme(String aboutme) {
+        this.aboutme = aboutme;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getCountry() {
@@ -90,12 +90,12 @@ public class User {
         this.country = country;
     }
 
-    public String getAge() {
-        return age;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 
