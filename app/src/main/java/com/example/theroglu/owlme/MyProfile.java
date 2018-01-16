@@ -326,8 +326,7 @@ public class MyProfile extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                     //this redirects user to profile update page.
-                    Toast.makeText(v.getContext().getApplicationContext(),"sa",Toast.LENGTH_LONG).show();
+
                     Intent myIntent = new Intent(getActivity(), EditProfile.class);
                     startActivity(myIntent);
 
