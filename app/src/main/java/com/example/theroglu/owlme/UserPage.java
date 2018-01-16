@@ -93,6 +93,13 @@ public class UserPage extends AppCompatActivity
         email.setText(user.getEmail());
 
 
+        MyHomeFragment myHomeFragment=new MyHomeFragment();
+        FragmentManager manager= getSupportFragmentManager();
+
+        manager.beginTransaction().replace(R.id.relative_layout_for_myprofile_fragment,myHomeFragment,myHomeFragment.getTag()).commit();
+
+
+
 
 
     }
@@ -115,20 +122,7 @@ public class UserPage extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

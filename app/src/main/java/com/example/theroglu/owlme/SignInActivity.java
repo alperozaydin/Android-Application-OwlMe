@@ -3,6 +3,7 @@ package com.example.theroglu.owlme;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -278,7 +279,7 @@ public class SignInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Toast.makeText(SignInActivity.this,"Registration Is Succesfull",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(SignInActivity.this,"Registration Is Succesfull",Toast.LENGTH_LONG).show();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
 
@@ -324,9 +325,9 @@ public class SignInActivity extends AppCompatActivity {
 
 
                             //after that user is redirected to the main account activity.
-                            Intent accountIntent = new Intent(SignInActivity.this,UserPage.class);
-                            accountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(accountIntent);
+                           Intent accountIntent = new Intent(SignInActivity.this,UserPage.class);
+                           accountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                           startActivity(accountIntent);
 
 
                         } else {
