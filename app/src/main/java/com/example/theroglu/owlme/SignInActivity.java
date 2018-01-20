@@ -306,6 +306,7 @@ public class SignInActivity extends AppCompatActivity {
                                         DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
                                         //value is also set to user display name however it doenst have to be so
                                         userNameRef.setValue(databaseUserName);
+                                        FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("country").setValue("");
 
 
 
@@ -383,6 +384,8 @@ public class SignInActivity extends AppCompatActivity {
                                 DatabaseReference userNameRef =  myRootRef.child(databaseUserName);
                                 //value is also set to user display name however it doenst have to be so
                                 userNameRef.setValue(databaseUserName);
+                                FirebaseDatabase.getInstance().getReference().child("Users").child(databaseUserName).child("country").setValue("");
+
 
 
 

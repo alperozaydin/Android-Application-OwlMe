@@ -319,6 +319,7 @@ public class RegisterActivity extends AppCompatActivity {
                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
 
                         user.updateProfile(profileUpdates);
+                        FirebaseDatabase.getInstance().getReference().child("Users").child(name).child("country").setValue("");
 
 
 

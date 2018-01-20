@@ -24,6 +24,7 @@
         <item>Italian</item>
         <item>Swedish</item>
         <item>Polish</item>
+        <item>Japanese</item>
     </string-array>
 
     <string-array name="gender_arrays">
