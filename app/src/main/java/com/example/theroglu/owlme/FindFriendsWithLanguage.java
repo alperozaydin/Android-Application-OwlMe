@@ -47,6 +47,16 @@ public class FindFriendsWithLanguage extends AppCompatActivity {
         setContentView(R.layout.activity_find_friends_with_language);
 
 
+        //referencing to our firebase connection
+        mAuth = FirebaseAuth.getInstance();
+
+        // we are getting the current user
+        final String user=mAuth.getCurrentUser().getDisplayName().toString();
+        //aboutMe variable is used to get text from the user for about their info
+
+
+
+
 
         //this is a list to save people's usernames having that language attribute
         final ArrayList<String > findPeople= new ArrayList<>();
@@ -61,9 +71,6 @@ public class FindFriendsWithLanguage extends AppCompatActivity {
         final String Language=i.getStringExtra("language");
 
 
-        //referencing to our firebase connection
-        mAuth = FirebaseAuth.getInstance();
-        final FirebaseUser user=mAuth.getCurrentUser();
 
 
 
@@ -91,11 +98,16 @@ public class FindFriendsWithLanguage extends AppCompatActivity {
                     if(snapshot.child("languages").hasChild(Language)){
 
 
+                       String a= snapshot.getKey().toString();
 
-                        User user1=snapshot.getValue(User.class);
-                        user1.setUsername(snapshot.getKey());
 
-                        userslist.add(user1);
+                       if(!snapshot.getKey().toString().equals(user)) {
+                           User user1 = snapshot.getValue(User.class);
+                           user1.setUsername(snapshot.getKey());
+
+                           userslist.add(user1);
+
+                       }
 
 
                     }

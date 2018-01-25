@@ -24,6 +24,7 @@
         <item>Italian</item>
         <item>Swedish</item>
         <item>Polish</item>
+        <item>Japanese</item>
     </string-array>
 
     <string-array name="gender_arrays">
@@ -48,7 +49,7 @@
 
     <string-array name="country_arrays">
         <item>Choose a Country</item>
-        <item>America</item>
+        <item>United States of America</item>
         <item>Spain</item>
         <item>Turkey</item>
         <item>France</item>
