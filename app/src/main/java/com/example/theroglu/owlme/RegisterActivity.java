@@ -302,7 +302,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-                        Toast.makeText(RegisterActivity.this,"Registration works",Toast.LENGTH_LONG).show();
+//                        Toast.makeText(RegisterActivity.this,"Registration works",Toast.LENGTH_LONG).show();
 
 
                         //getting a reference to the users in realtime database
